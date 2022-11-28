@@ -1,6 +1,10 @@
 <script>
+import SectionCharacter from "./SectionCharacter.vue";
 export default {
   name: "AppMain",
+  components: {
+    SectionCharacter,
+  },
 };
 </script>
 
@@ -18,6 +22,7 @@ export default {
       <div class="found py-1 px-3">
         <span>Found 62 character</span>
       </div>
+      <SectionCharacter />
     </div>
   </main>
 </template>

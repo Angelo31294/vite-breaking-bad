@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <header class="d-flex py-2">
+  <header class="d-flex py-2 mb-4">
     <img class="mx-1" src="../asset/logo.png" alt="logo" />
     <h1>Breaking Bad Api</h1>
   </header>
