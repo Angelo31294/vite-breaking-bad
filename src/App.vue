@@ -1,14 +1,22 @@
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   components: {
-    HelloWorld,
+    AppHeader,
+    AppMain,
+    AppFooter,
   },
 };
 </script>
 
-<templeate></templeate>
+<templeate>
+  <AppHeader/>
+  <AppMain/>
+  <AppFooter/>
+</templeate>
 
 <style lang="scss">
 @import "./style/global.scss";

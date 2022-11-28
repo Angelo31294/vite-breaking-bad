@@ -1,9 +1,11 @@
 <script>
 export default {
-  name: "helloWorld",
+  name: "AppFooter",
 };
 </script>
 
-<template></template>
+<template>
+  <footer></footer>
+</template>
 
 <style lang="scss"></style>
