@@ -13,9 +13,7 @@ export default {
 </script>
 
 <templeate>
-  <AppHeader/>
   <AppMain/>
-  <AppFooter/>
 </templeate>
 
 <style lang="scss">
