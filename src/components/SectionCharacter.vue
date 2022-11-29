@@ -1,6 +1,6 @@
 <script>
-import axios from "axios";
 import CardCharatter from "./CardCharatter.vue";
+import { store } from "../store";
 export default {
   name: "SectionCharacter",
   components: {
@@ -8,18 +8,25 @@ export default {
   },
   data() {
     return {
-      characters: [],
+      store,
     };
-  },
-  created() {
-    axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
-      console.log(resp.data.results);
-      this.characters = resp.data.results;
-    });
   },
 };
 </script>
+
 <template>
-  <CardCharatter class="col-sm-6 col-lg-3" />
+  <div class="container">
+    <CardCharatter v-for="character in store.characters" :info="character" />
+  </div>
 </template>
-<style></style>
+
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: auto;
+  background-color: #fff;
+  padding: 1.25rem 2.5rem;
+}
+</style>

@@ -1,49 +1,49 @@
 <script>
+import axios from "axios";
+import { store } from "../store";
 import SectionCharacter from "./SectionCharacter.vue";
+import SelectSection from "./SelectSection.vue";
 export default {
   name: "AppMain",
   components: {
     SectionCharacter,
+    SelectSection,
+  },
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    searching() {
+      axios
+        .get("https://www.breakingbadapi.com/api/characters", {
+          params: {
+            category: this.store.searchValue,
+          },
+        })
+        .then((resp) => {
+          this.store.characters = resp.data;
+        });
+    },
+  },
+  created() {
+    axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
+      this.store.characters = resp.data;
+    });
   },
 };
 </script>
 
 <template>
-  <form class="mb-3">
-    <select class="form-select">
-      <option selected>Select category</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </form>
-  <main class="p-3">
-    <div class="container">
-      <div class="found py-1 px-3">
-        <span>Found 62 character</span>
-      </div>
-      <SectionCharacter />
-    </div>
-  </main>
+  <div class="ms-container">
+    <SelectSection @search="searching" />
+    <SectionCharacter />
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.container {
-  max-width: 80rem;
-  height: 100px;
-  margin: auto;
-
-  .found {
-    background-color: #212529;
-    color: #fff;
-  }
-}
-
-form {
-  width: 15%;
-}
-
-main {
-  background-color: #fff;
+.ms-container {
+  width: var(--ms-container);
 }
 </style>
